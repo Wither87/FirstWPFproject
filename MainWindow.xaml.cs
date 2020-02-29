@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -23,43 +22,51 @@ namespace WpfApplication1
         public MainWindow()
         {
             InitializeComponent();
+            label.Content = startText + result;
         }
 
         TextBox txt; 
         const byte distens = 25;
         int top = 60;
-        int result;
-        string startText = "Результат = ";
+        int result = 0;
+        readonly string startText = "Результат = ";
 
-        private void plusButton_Click_1(object sender, RoutedEventArgs e)
+        private void PlusButton_Click_1(object sender, RoutedEventArgs e)
         {
             CreateTextBox();
         }
 
-        private void returnSumButton_Click(object sender, RoutedEventArgs e)
+        private void ReturnSumButton_Click(object sender, RoutedEventArgs e)
         {
             Sum();
         }
 
-        private void Window_KeyDown(object sender, KeyEventArgs e)
+        private void hotkeysButton_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Пробел - Создать новое окно ввода\nEnter - Сложить\nEsc - Закрыть приложение", "Горячие клавиши");
+        }
+
+        private void Window_KeyUp(object sender, KeyEventArgs e)
         {
             switch (e.Key)
             {
-                case Key.Enter:  Sum(); break;
-                case Key.Space:  CreateTextBox(); break;
+                case Key.Enter: Sum(); break;
+                case Key.Space: CreateTextBox(); break;
                 case Key.Escape: Close(); break;
+                default: Sum(); break;
             }
         }
 
-
         void CreateTextBox()
         {
-            txt = new TextBox();
-            txt.HorizontalAlignment = HorizontalAlignment.Left;
-            txt.VerticalAlignment = VerticalAlignment.Top;
-            txt.Height = 20;
-            txt.Width = 100;
-            txt.Margin = new Thickness(10, top, 0, 0);
+            txt = new TextBox
+            {
+                HorizontalAlignment = HorizontalAlignment.Left,
+                VerticalAlignment = VerticalAlignment.Top,
+                Height = 20,
+                Width = 100,
+                Margin = new Thickness(10, top, 0, 0)
+            };
             top += distens;
             gMain.Children.Add(txt);
         }
@@ -83,9 +90,10 @@ namespace WpfApplication1
                     }
                 }
             }
-            label.Content = startText;
-            label.Content = label.Content + result.ToString();
+            label.Content = startText + result;
             result = 0;
         }
+
+        
     }
 }
