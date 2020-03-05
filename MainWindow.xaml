@@ -5,11 +5,25 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApplication1"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525" KeyUp="Window_KeyUp">
-    <Grid x:Name="gMain">
-        <Label x:Name="label" Content="Результат = " HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="304" Height="38" FontSize="24"/>
-        <Button x:Name="plusButton" Content="+" HorizontalAlignment="Left" Height="41" Margin="377,10,0,0" VerticalAlignment="Top" Width="110" Click="PlusButton_Click_1"/>
-        <Button x:Name="returnSumButton" Content="Сложить" HorizontalAlignment="Left" Margin="377,56,0,0" VerticalAlignment="Top" Width="110" Height="44" Click="ReturnSumButton_Click"/>
-        <Button x:Name="hotkeysButton" Content="Горячие клавиши" HorizontalAlignment="Left" Margin="377,105,0,0" VerticalAlignment="Top" Width="110" Height="44" Click="hotkeysButton_Click"/>
+        Title="MainWindow" Height="320" Width="560" KeyUp="Window_KeyUp" MinHeight="320" MinWidth="560">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="120"/>
+        </Grid.ColumnDefinitions>
+
+        <Label x:Name="label" Margin="5" FontSize="24"/>
+        <Button x:Name="plusButton" Content="+" Margin="5" Click="PlusButton_Click_1" Grid.Column="1"/>
+
+        <Grid Grid.Row="1" Grid.Column="0">
+            <WrapPanel x:Name="WrapPanelWithTextBoxes" Orientation="Vertical">
+                
+            </WrapPanel>
+        </Grid>
+        
     </Grid>
 </Window>
