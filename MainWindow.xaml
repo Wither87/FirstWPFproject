@@ -5,25 +5,27 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApplication1"
         mc:Ignorable="d"
-        Title="MainWindow" Height="320" Width="560" KeyUp="Window_KeyUp" MinHeight="320" MinWidth="560">
+        Title="MainWindow" Height="320" Width="560" KeyUp="Window_KeyUp" MinHeight="200" MinWidth="400">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="60"/>
-            <RowDefinition/>
+            <RowDefinition Height="10*"/>
+            <RowDefinition Height="10*"/>
+            <RowDefinition Height="29*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition Width="120"/>
+            <ColumnDefinition Width="65*"/>
+            <ColumnDefinition Width="14*"/>
         </Grid.ColumnDefinitions>
 
         <Label x:Name="label" Margin="5" FontSize="24"/>
-        <Button x:Name="plusButton" Content="+" Margin="5" Click="PlusButton_Click_1" Grid.Column="1"/>
+        <Button x:Name="plusButton" Content="+" FontSize="20" Margin="5" Click="PlusButton_Click" Grid.Column="1"/>
+        <Button x:Name="DeleteTextBoxButton" Content="Delete" FontSize ="20" Margin="5" Click="DeleteButton_Click" Grid.Column="1" Grid.Row="1" Grid.RowSpan="1"/>
 
-        <Grid Grid.Row="1" Grid.Column="0">
-            <WrapPanel x:Name="WrapPanelWithTextBoxes" Orientation="Vertical">
-                
-            </WrapPanel>
+        <Grid Grid.Column="0" Margin="0,55,3.2,0.4" Grid.RowSpan="3">
+            <StackPanel x:Name="StackPanelWithTextBoxes" Margin="5" Orientation="Vertical">
+
+            </StackPanel>
         </Grid>
-        
+
     </Grid>
 </Window>
