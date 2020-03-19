@@ -22,8 +22,8 @@
         <Button x:Name="DeleteTextBoxButton" Content="Delete" FontSize ="20" Margin="5" Click="DeleteButton_Click" Grid.Column="1" Grid.Row="1" Grid.RowSpan="1"/>
 
         <Grid Grid.Column="0" Margin="0,55,3.2,0.4" Grid.RowSpan="3">
-            <StackPanel x:Name="StackPanelWithTextBoxes" Margin="5" Orientation="Vertical">
-
+            <StackPanel x:Name="StackPanelWithTextBoxes" Margin="5">
+                
             </StackPanel>
         </Grid>
 
